@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchDataFromApi } from "./utils/api";
+import { useSelector, useDispatch } from "react-redux";
+import { getApiConfiguration } from "./store/homeSlice";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+  const { url } = useSelector((state) => state.home);
+  useEffect(() => {
+    apiTesting();
+  }, []);
 
-  return <div className="App">App</div>;
+  const apiTesting = async () => {
+    const data = await fetchDataFromApi("/movie/popular");
+    dispatch(getApiConfiguration(data));
+  };
+
+  return <div className="App">{url?.total_pages}</div>;
 }
 
 export default App;
