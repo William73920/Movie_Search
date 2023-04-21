@@ -19,8 +19,13 @@ function App() {
   }, []);
 
   const apiTesting = async () => {
-    const data = await fetchDataFromApi("/movie/popular");
-    dispatch(getApiConfiguration(data));
+    const data = await fetchDataFromApi("/configuration");
+    const url = {
+      backdrop: data.images.secure_base_url + "original",
+      poster: data.images.secure_base_url + "original",
+      profile: data.images.secure_base_url + "original",
+    };
+    dispatch(getApiConfiguration(url));
   };
 
   return (
