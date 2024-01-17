@@ -32,6 +32,7 @@
       flex-direction: row;
     }
     .react-select-container {
+      z-index: 9999;
       &.genresDD {
         width: 100%;
         @include md {
