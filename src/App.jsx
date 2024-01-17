@@ -9,7 +9,7 @@ import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
-import PageError from "./pages/404/pageError";
+import PageError from "./pages/404/PageError";
 
 function App() {
   const dispatch = useDispatch();
